@@ -21,31 +21,74 @@ function addTarefaButton() {
     }
 }
 
-//APAGANDO TAREFAS
+
+
+
+//APAGANDO TAREFAS (10)
+function deleteTarefa () {
+    // for (let i = tarefaList.length-1; i >= 0; i--){
+    //     // let deletation = deleteItems[i];    
+    //     // tarefaList.removeChild(deletation); 
+    //     console.log(deleteItems);
+    //     deleteItems[i].remove();
+    // }
+
+    tarefaList.innerHTML = "";
+}
+
 let deleteButton = document.getElementById("apaga-tudo");
-let deleteItems = document.getElementsByTagName("li");
+
+deleteButton.addEventListener("click", deleteTarefa);
+
 tarefaList = document.getElementById("lista-tarefas");
 
-deleteButton.addEventListener("click", deleteTarefaButton);
 
-/*let vazioPlaceHolder = document.createElement('p');
-vazioPlaceHolder.classList.add(".vazio");
-vazioPlaceHolder.innerText = "Lista Vazia";*/
 
-function deleteTarefaButton () {
-    for (let i = 0; i < deleteItems.length; i += 1) {
-        let deletation = deleteItems[i];    
-        tarefaList.removeChild(deletation); 
-    }    
+
+//CLICANDO NA TAREFA, FUNDO CINZA (7)
+function clickedTarefa (event) {
+    let tarefaItem = document.getElementsByTagName("li");
+
+    for (let x of tarefaItem) {
+        x.classList.remove('clicked-item');
+    }
+
+    // for (let x = 0; x < tarefaItem.lenght; x++) {
+    //     tarefaItem[x].classList.remove('clicked-item');
+    // }
+
+    let tarefa = event.target;
+    tarefa.classList.add('clicked-item');
 }
 
-//ALTERANDO A COR DE FUNDO DO ITEM LISTA
-let itensLista = document.querySelectorAll("li");
+tarefaList.addEventListener("click", clickedTarefa);
 
-for (i = 0; i < itensLista.length; i += 1) {
-    itensLista[i].addEventListener('change', alteraCor);
+
+
+//RISCAR TAREFA (9)
+// function riscarTarefa (event) {
+//     let tarefa = document.getElementsByTagName("li");
+//     tarefa = event.target;
+//     tarefa.classList.add('completed');
+// }
+
+// tarefaList.addEventListener("ondblclick", riscarTarefa);
+
+//REMOVER RISCADO (11)
+
+function deleteTarefaCompleted () {
+    // for (let i = tarefaList.length-1; i >= 0; i--){
+    //     // let deletation = deleteItems[i];    
+    //     // tarefaList.removeChild(deletation); 
+    //     console.log(deleteItems);
+    //     deleteItems[i].remove();
+    // }
+
+    document.getElementsByClassName("completed").remove;
 }
 
-function alteraCor() {
-    
-}
+let deleteCompleted = document.getElementById("remover-finalizados");
+
+deleteCompleted.addEventListener("click", deleteTarefaCompleted);
+
+tarefaList = document.getElementById("lista-tarefas");
