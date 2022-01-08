@@ -66,25 +66,27 @@ tarefaList.addEventListener("click", clickedTarefa);
 
 
 //RISCAR TAREFA (9)
-// function riscarTarefa (event) {
-//     let tarefa = document.getElementsByTagName("li");
-//     tarefa = event.target;
-//     tarefa.classList.add('completed');
-// }
+function riscarTarefa (event) {
+    let tarefaItem = document.getElementsByTagName("li");
 
-// tarefaList.addEventListener("ondblclick", riscarTarefa);
+    for (let x of tarefaItem) {
+        x.classList.remove('clicked-item');
+    }
 
-//REMOVER RISCADO (11)
+    let tarefa = event.target;
+    tarefa.classList.add('completed');
+}
+
+tarefaList.addEventListener("dblclick", riscarTarefa);
+
+
+
+//REMOVER RISCADO (11)**
 
 function deleteTarefaCompleted () {
-    // for (let i = tarefaList.length-1; i >= 0; i--){
-    //     // let deletation = deleteItems[i];    
-    //     // tarefaList.removeChild(deletation); 
-    //     console.log(deleteItems);
-    //     deleteItems[i].remove();
-    // }
+    
 
-    document.getElementsByClassName("completed").remove;
+    console.log(document.getElementsByClassName("completed"));
 }
 
 let deleteCompleted = document.getElementById("remover-finalizados");
